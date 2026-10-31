@@ -10,6 +10,15 @@ without reading the whole codebase.
 
 ---
 
+## 2026-10-31 20:00 — Windows lint fix and Next.js agent rules off
+
+- **Line endings:** `.gitattributes` now keeps every text file in LF. On Windows the files were
+  checked out with CRLF and Biome's formatter rejected them, so `npm run check` failed at lint.
+- **Next.js agent rules:** `agentRules: false` in `next.config.ts`. `next dev` no longer adds its
+  block or recreates `AGENTS.md` after the file is renamed for the AI tool.
+- **`AGENTS.md`:** the block told the AI to read the Next.js docs before any code. A short rule
+  under Working Rules replaces it: grep the docs when unsure, and read only the matching guide.
+
 ## 2026-10-31 16:00 — Project created from Web Starter template
 
 Starting point of the project. What the template provides:
