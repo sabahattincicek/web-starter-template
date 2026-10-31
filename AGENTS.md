@@ -3,16 +3,6 @@
 Rules for any AI coding assistant working in this repository. They are tool-agnostic, and
 developers are free to edit them to fit the project.
 
-<!-- BEGIN:nextjs-agent-rules -->
-
-## This is NOT the Next.js you know
-
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
-
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
-
-<!-- END:nextjs-agent-rules -->
-
 ---
 
 ## Project Settings
@@ -72,6 +62,8 @@ At the start of every session, before writing any code:
   (Claude Code: `Explore`), so only its short answer enters the conversation. Search directly when
   one grep is enough. Files listed in `.ignore` (generated files such as migrations) are left out
   of search on purpose; read one by its path only when the task needs it.
+- **Next.js docs.** This Next.js version may differ from your training data. When unsure about an
+  API, grep `node_modules/next/dist/docs/` and read only the matching guide.
 - **Feature map.** [`docsagent/FEATURES.md`](docsagent/FEATURES.md) has one line per feature: what
   it does, its folder, its use cases, and its services. When a task mentions a feature, look it up
   there first. Update the row in the same piece of work that adds, changes, or removes a feature.
