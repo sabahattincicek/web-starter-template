@@ -24,9 +24,11 @@ export class BetterAuthSessionRepository implements SessionRepository {
     private readonly requestHeaders: () => Promise<Headers>,
   ) {}
 
-  getCurrentUser(): Promise<Result<User | null>> {
+  async getCurrentUser(): Promise<Result<User | null>> {
+    // Outside resultOf: during a build, Next.js stops this call on purpose and must see that signal.
+    const requestHeaders = await this.requestHeaders();
     return resultOf("session_read_failed", async () => {
-      const session = await this.readSession(await this.requestHeaders());
+      const session = await this.readSession(requestHeaders);
       return session ? toUser(session.user) : null;
     });
   }

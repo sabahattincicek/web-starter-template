@@ -80,9 +80,13 @@ Then run `npm run check`.
 
 ## 5. Replace the Placeholders
 
-* **Start page:** `src/app/page.tsx` shows the app name. Replace it with your first feature (see
+* **Start page:** `src/app/[locale]/page.tsx` shows the app name. Replace it with your first feature (see
   "Adding a feature" in `docsagent/ARCHITECTURE.md`).
-* **`src/core/config/app-config.ts`:** set the description.
+* **Site description:** set `Metadata.description` in every file in
+  `src/presentation/ui/i18n/messages/`.
+* **Languages:** the template has English and Turkish, with English as the default. See "Languages"
+  in `docsagent/ARCHITECTURE.md` to change them. A site with one language keeps the same setup with
+  one entry in `locales`.
 * **`src/app/favicon.ico`:** replace it with your icon.
 * **Empty folders** contain a `.gitkeep` file so that git keeps them. Delete the `.gitkeep` once a
   folder has real files, or delete the folder if the project does not need it.

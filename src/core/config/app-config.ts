@@ -3,5 +3,4 @@
  */
 export const appConfig = {
   name: "Web Starter",
-  description: "A Next.js starter template organized with Clean Architecture.",
 } as const;

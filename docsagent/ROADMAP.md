@@ -17,6 +17,7 @@ phase.
 - [ ] Run `npm run rename` with the new project name
 - [ ] Verify the rename and search for leftover `web-starter` references
 - [ ] Remove the optional parts the project does not need (auth, database)
+- [ ] Set the site's languages and the default language in `routing.ts`
 - [ ] Review `AGENTS.md` and adjust the rules to the project
 - [ ] Answer the AI's first-session questions (AI tool, who makes git commits and pushes)
 - [ ] Run `npm run check` and open the app
@@ -42,4 +43,4 @@ phase.
 
 ## Later
 
-- [ ] Add `next-intl` if the app needs several languages
+- [ ] ...

@@ -163,8 +163,10 @@ Which of these does the site need? For each one, which provider (or "you decide"
 
 ### A9. Languages and content
 
-- Which languages at launch? Which later? Any right-to-left language (Arabic, Hebrew)? (Several
-  languages add `next-intl` and localized addresses such as `/en` and `/tr`.)
+- Which languages at launch? Which later? Which one is the default? Any right-to-left language
+  (Arabic, Hebrew)? (The template ships with English and Turkish through `next-intl`.)
+- Should visitors get a language switcher? Should addresses be translated too (`/tr/hakkinda`
+  instead of `/tr/about`)?
 - Currency, date, number, and unit formats?
 - Where does the content come from: users, the team (editorial), an API, or AI?
 - Does user content need moderation or reporting?

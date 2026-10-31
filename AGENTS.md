@@ -211,13 +211,18 @@ Rules:
 - **Models:** database rows and DTOs (`data/remote/dto/`) are mapped to `domain/model/` in the
   repositories and never reach the UI.
 - **Use cases:** one job each, a class with one `execute` method.
-- **Routes:** a file in `app/` only renders a feature. No logic and no data loading there.
+- **Routes:** a page in `app/[locale]/` sets the language and renders a feature. No logic and no
+  data loading there.
 - **Features:** `<name>-route.tsx` loads the data, `<name>-screen.tsx` receives it as props and is
   stateless, and `actions.ts` holds the Server Actions. Keep business logic in use cases.
 - **Server first:** components are Server Components unless they need state, effects, or event
   handlers. Keep `"use client"` components small, and never pass secrets to them.
 - **Server Actions:** every action validates its input with Zod and checks the user, then calls a
   use case and returns a `Result`.
+- **No hardcoded user-facing text:** text lives in `presentation/ui/i18n/messages/<language>.json`,
+  one group per feature, and every language gets the key in the same change. Use `Link` and
+  `redirect` from `presentation/ui/i18n/navigation`, not from Next.js. See "Languages" in
+  `docsagent/ARCHITECTURE.md`.
 - **Environment variables:** read them only through `getEnv()`, and add new ones to `env.ts` and
   `.env.example`.
 - **Database changes:** edit `schema.ts`, run `npm run db:generate`, and commit the migration. Never

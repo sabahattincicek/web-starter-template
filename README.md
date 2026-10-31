@@ -1,8 +1,8 @@
 # Web Starter
 
 A Next.js starter template organized with Clean Architecture: React, TypeScript, Tailwind CSS,
-shadcn/ui, Drizzle, Better Auth, Vitest, and Playwright. It has no ready-made pages, only the
-structure and the wiring.
+shadcn/ui, next-intl, Drizzle, Better Auth, Vitest, and Playwright. It has no ready-made pages, only
+the structure and the wiring.
 
 ## First-Time Setup
 
@@ -29,7 +29,8 @@ Clean Architecture. Each layer is a folder in `src/`, so the folder tree shows t
 
 ```text
 src/
-  app/                     Next.js routes only, thin
+  app/                     Next.js routes only, thin; pages live in [locale]/
+  proxy.ts                 picks the visitor's language
   core/                    config, logger, Result, test helpers
   domain/                  models, repository interfaces, use cases (pure TypeScript)
   data/                    repository implementations
@@ -37,7 +38,7 @@ src/
     remote/                API clients, DTOs, Better Auth         (optional)
   di/                      creates data classes, hands out use cases
   presentation/
-    ui/                    theme, shared components and hooks
+    ui/                    theme, shared components and hooks, languages and translations
     features/<name>/       one folder per screen or flow
 e2e/                       Playwright tests
 docsagent/                 AI working documents
@@ -59,11 +60,18 @@ uses an embedded database (PGlite), so there is nothing to install. For producti
 connection string from **Neon, Supabase, or any Postgres server**. The code stays the same. See
 "Database" in [`docsagent/ARCHITECTURE.md`](docsagent/ARCHITECTURE.md).
 
+## Languages
+
+The site starts with English at `/` and Turkish at `/tr`. Text lives in one file per language, and
+a missing or mistyped key fails the checks. See "Languages" in
+[`docsagent/ARCHITECTURE.md`](docsagent/ARCHITECTURE.md).
+
 ## Stack
 
 | Area | Library |
 |---|---|
 | Framework | Next.js 16 (App Router, Turbopack), React 19 |
+| Languages | next-intl |
 | Language | TypeScript 7, Node.js 24 |
 | UI | Tailwind CSS 4, shadcn/ui, next-themes |
 | Validation | Zod 4 |

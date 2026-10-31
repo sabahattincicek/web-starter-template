@@ -47,6 +47,16 @@ describe("BetterAuthSessionRepository", () => {
     ).resolves.toEqual(success(null));
   });
 
+  it("lets the framework's stop signal for request headers through", async () => {
+    const signal = new Error("Prerender is complete");
+    const repository = new BetterAuthSessionRepository(
+      async () => null,
+      () => Promise.reject(signal),
+    );
+
+    await expect(repository.getCurrentUser()).rejects.toBe(signal);
+  });
+
   it("turns an error into a failure", async () => {
     const repository = repositoryWith(async () => {
       throw new Error("Database is down");

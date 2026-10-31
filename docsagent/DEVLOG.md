@@ -15,12 +15,14 @@ without reading the whole codebase.
 Starting point of the project. What the template provides:
 
 - **Stack:** Next.js 16 (App Router, Turbopack, Cache Components), React 19, TypeScript 7,
-  Tailwind CSS 4, shadcn/ui, Zod 4, Node.js 24.
+  Tailwind CSS 4, shadcn/ui, next-intl, Zod 4, Node.js 24.
 - **Layout:** Clean Architecture, one folder per layer in `src/`: `app`, `core`, `domain`, `data`,
   `di`, `presentation`. Biome rejects imports that cross the layers the wrong way. Intended but
   empty folders contain a `.gitkeep`.
-- **App:** a placeholder start page (`src/app/page.tsx`) and the root layout with fonts and a
-  light and dark theme. There are no ready-made pages and no features.
+- **App:** a placeholder start page (`src/app/[locale]/page.tsx`) and the root layout with fonts and
+  a light and dark theme. There are no ready-made pages and no features.
+- **Languages:** English at `/` and Turkish at `/tr`, with next-intl. Translations in
+  `src/presentation/ui/i18n/messages/`, language detection in `src/proxy.ts`.
 - **Core:** `Result`, `logger`, validated environment variables (`getEnv`), `appConfig`.
 - **Domain:** `User`, `SessionRepository`, `GetCurrentUserUseCase`.
 - **Data, optional parts:**
